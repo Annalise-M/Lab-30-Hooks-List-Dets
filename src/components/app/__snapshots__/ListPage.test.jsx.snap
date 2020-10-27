@@ -2,8 +2,11 @@
 
 exports[`ListPage container displays HeyArnold character data 1`] = `
 <DocumentFragment>
-  <getapiall
-    characters=""
-  />
+  <ul>
+    <li>
+      <p />
+      <p />
+    </li>
+  </ul>
 </DocumentFragment>
 `;
