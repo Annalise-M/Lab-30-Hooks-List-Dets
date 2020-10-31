@@ -1,39 +1,39 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable max-len */
+import React from 'react';
 import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
 import { getApiAll } from '../../services/heyArnold-api';
+import CharacterDetail from './DetailsPage';
 
-//ListPage Displays a list of things on the home page of application
-const ListPage = (characters) => {
-  const [character, setCharacter] = useState([getApiAll]);
+const ListPage = () => {
+  const [character, setCharacter] = useState([]);
 
   useEffect(() => {
     getApiAll()
       .then(character => setCharacter(character));
   }, []);
-    
+  
   return (
-    <ul>
-      <li key={characters}>
-        {character}
-        <p>{character.name}</p>
-        <p>{character.image}</p>
-      </li>
-      {/* const characterLinks = character.map(character => (
-      <li key={`${character.id}`} >
-        <p>{character.name}</p>
-        <p>{character.image}</p>
-      </li>)
-    ) */}
-    </ul>
+    <div>
+      <h3>Character List</h3>
+      {character.map((character) => {
+        return (
+          <li key={character._id}>
+            <CharacterDetail {...character}/>
+         
+            <br />
+          </li>
+        );
+      })}
+    </div>
+
   );
 };
 
 ListPage.propTypes = {
-  character: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired
-  })).isRequired
+
+  characters: PropTypes.array
+ 
 };
 
 export default ListPage;

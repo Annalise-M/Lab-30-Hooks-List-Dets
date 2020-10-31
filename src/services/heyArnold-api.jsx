@@ -2,19 +2,18 @@
 const fetch = require('node-fetch');
 
 export const getApiAll = () => {
-  return fetch('https://rickandmortyapi.com/api/character/')
+  return fetch('https://hey-arnold-api.herokuapp.com/api/v1/characters')
     .then(res => res.json())
-    .then(json => json.map(character => ({
-      id: character.id,
-      name: character.name,
-      image: character.image
-    }
-    )));
+    .then(json => json.map(characters => ({
+      _id: characters._id,
+      name: characters.name,
+      image: characters.image
+    })));
 };
 
-export const getApiById = (id) => {
+export const getApiById = (_id) => {
   // eslint-disable-next-line max-len
-  return fetch(`https://rickandmortyapi.com/api/character/${id}`)
+  return fetch(`https://hey-arnold-api.herokuapp.com/api/v1/characters/${_id}`)
     .then(res => res.json())
     .then(json => json.map(character => ({
       _id: character._id,
@@ -22,9 +21,3 @@ export const getApiById = (id) => {
       image: character.image
     })));
 };
-
-//https://hey-arnold-api.herokuapp.com/api/v1/characters?perPage=3&page=2
-
-//gifLink: characters.gifLink
-//https://hey-arnold-api.herokuapp.com/api/v1/gifs
-//https://hey-arnold-api.herokuapp.com/api/v1/gifs/5da23754845fd2cb76d59ee7

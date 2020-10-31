@@ -5,7 +5,7 @@ import ListPage from './ListPage';
 describe('ListPage container', () => {
   afterEach(() => cleanup());
   it('displays HeyArnold character data', () => {
-    const { asFragment } = render(<ListPage data-testid="display" />);
+    const { asFragment } = render(<ListPage />);
     expect(asFragment()).toMatchSnapshot();
   });
 });
