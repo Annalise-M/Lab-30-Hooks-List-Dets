@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useState, useEffect } from 'react';
-import { getApiById } from '../../services/heyArnold-api';
+import { getCharacterById } from '../../services/heyArnold-api';
 
 const CharacterDetail = (_id) => {
-  const [character, setCharacter] = useState([getApiById]);
+  const [character, setCharacter] = useState([getCharacterById]);
 
   useEffect(() => {
-    getApiById(_id)
+    getCharacterById(_id)
       .then(character => setCharacter(character._id));
   }, []);
   return (

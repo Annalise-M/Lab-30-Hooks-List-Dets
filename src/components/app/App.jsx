@@ -1,6 +1,6 @@
 import React from 'react';
-import ListPage from './ListPage';
+import CharacterListPage from './CharacterListPage';
 
 export default function App() {
-  return <ListPage />;
+  return <CharacterListPage />;
 }
